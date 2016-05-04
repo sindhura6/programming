@@ -1,0 +1,35 @@
+public class Solution {
+	public int findRank(String a) {
+	   
+	    // count the num of char less than start char
+	    if(a==null)
+	    return 0;
+	    if(a.length()==1)
+	    return 1;
+	    int rank =1;
+	   
+	    for(int i =0;i<a.length()-1;i++)
+	    {
+	         char s = a.charAt(i);
+	       //   int c=0;
+	         for(int j =i+1;j<a.length();j++)
+	         {
+	        if(s>a.charAt(j))
+	        {
+	            rank = (rank + factorial(a.length()-i-1))%1000003;
+	        }
+	        
+	         }
+	    }
+	    return rank;
+	    
+	}
+	int factorial(int N)
+	{
+	     long multi = 1;
+        for (int i = 1; i <= N; i++) {
+            multi = (multi * i)%1000003;
+        }
+        return (int) multi;
+	}
+}
