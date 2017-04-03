@@ -1,0 +1,16 @@
+def firstNonRepeating(s):
+    dic = {}
+    for i,a in enumerate(s):
+        if a in dic:
+            dic[a][1]+=1
+        else:
+            dic[a] = [i,1]
+    print dic
+    index = len(s)
+    c = s[index-1]
+    for key, value in dic.iteritems():
+        if value[0]<index and value[1]==1:
+            index = value[0]
+            c = key
+    return c
+print firstNonRepeating('abcssa')
